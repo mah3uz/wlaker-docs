@@ -8,10 +8,10 @@ nextjs:
 
 Integrate Anthropic Claude and Google Gemini via prompts.
 
-Env vars:
-
+{% callout title="Required Env vars:" %}
 - ANTHROPIC_API_KEY: required for Anthropic
 - GEMINI_API_KEY: required for Gemini
+{% /callout %}
 
 ## Configure
 

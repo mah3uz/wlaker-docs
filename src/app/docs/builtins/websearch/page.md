@@ -17,19 +17,19 @@ icon = "applications-internet"
 placeholder = "Websearch"
 keep_selection = true
 
-  [[builtins.websearch.entries]]
-  name = "Google"
-  url = "https://www.google.com/search?q=%TERM%"
+[[builtins.websearch.entries]]
+name = "Google"
+url = "https://www.google.com/search?q=%TERM%"
 
-  [[builtins.websearch.entries]]
-  name = "DuckDuckGo"
-  url = "https://duckduckgo.com/?q=%TERM%"
-  switcher_only = true
+[[builtins.websearch.entries]]
+name = "DuckDuckGo"
+url = "https://duckduckgo.com/?q=%TERM%"
+switcher_only = true
 
-  [[builtins.websearch.entries]]
-  name = "Ecosia"
-  url = "https://www.ecosia.org/search?q=%TERM%"
-  switcher_only = true
+[[builtins.websearch.entries]]
+name = "Ecosia"
+url = "https://www.ecosia.org/search?q=%TERM%"
+switcher_only = true
 ```
 
 Use `%TERM%` placeholder to inject the current query.
