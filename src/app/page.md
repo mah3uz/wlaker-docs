@@ -2,111 +2,240 @@
 title: Getting started
 ---
 
-Learn how to get CacheAdvance set up in your project in under thirty minutes or it's free. {% .lead %}
+{% callout title="Important: This is not official website!" %}
+This site is not officially maintained by the Walker team, but is provided by the community.
+It is not guaranteed to be up-to-date or accurate.
+{% /callout %}
+
+Learn how to get Walker on your computer and start using. It's free. {% .lead %}
 
 {% quick-links %}
 
-{% quick-link title="Installation" icon="installation" href="/" description="Step-by-step guides to setting up your system and installing the library." /%}
+{% quick-link title="Installation" icon="installation" href="/docs/installation" description="Step-by-step guides to setting up your system and installing the library." /%}
 
-{% quick-link title="Architecture guide" icon="presets" href="/" description="Learn how the internals work and contribute." /%}
+{% quick-link title="Architecture guide" icon="presets" href="https://github.com/abenz1267/walker/wiki" description="Learn how the internals work and contribute." /%}
 
-{% quick-link title="Plugins" icon="plugins" href="/" description="Extend the library with third-party plugins or write your own." /%}
+{% quick-link title="Plugins" icon="plugins" href="/docs/plugins" description="Extend walker with third-party plugins or write your own." /%}
 
-{% quick-link title="API reference" icon="theming" href="/" description="Learn to easily customize and modify your app's visual design to fit your brand." /%}
+{% quick-link title="Themes" icon="theming" href="/docs/themes-and-layouts" description="Learn to easily customize and modify your walker's visual design to fit your brand." /%}
 
 {% /quick-links %}
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste.
+Walker is a highly extendable application launcher that doesn't hold back on features and usability. Fast. Unclutters your brain. Improves your workflow.
 
 ---
 
 ## Quick start
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+{% callout type="warning" title="You should know!" %}
+Walker is currently undergoing a much-needed rewrite in order to release a `1.0.0`.
 
-### Installing dependencies
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
-
-```shell
-npm install @tailwindlabs/cache-advance
-```
-
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
-
-{% callout type="warning" title="Oh no! Something bad happened!" %}
-This is what a disclaimer message looks like. You might want to include inline `code` in it. Or maybe you’ll want to include a [link](/) in it. I don’t think we should get too carried away with other scenarios like lists or tables — that would be silly.
-{% /callout %}
-
-### Configuring the library
-
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
-
-```js
-// cache-advance.config.js
-export default {
-  strategy: 'predictive',
-  engine: {
-    cpus: 12,
-    backups: ['./storage/cache.wtf'],
-  },
-}
-```
-
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
-
-{% callout title="You should know!" %}
-This is what a disclaimer message looks like. You might want to include inline `code` in it. Or maybe you’ll want to include a [link](/) in it. I don’t think we should get too carried away with other scenarios like lists or tables — that would be silly.
+The latest functional version can be found in the [0.13.26-branch](https://github.com/abenz1267/walker/tree/0.13.26).
 {% /callout %}
 
 ---
 
-## Basic usage
+## Features
 
-Praesentium laudantium magni. Consequatur reiciendis aliquid nihil iusto ut in et. Quisquam ut et aliquid occaecati. Culpa veniam aut et voluptates amet perspiciatis. Qui exercitationem in qui. Vel qui dignissimos sit quae distinctio.
+- plugin support: simple stdin/stdout (external or via configuration, see wiki)
+- icons/images
+- start as service for faster startup
+- run entries via labels (F<1-8> or jkl;asdf)
+- non-blocking async handling of results
+- typeahead
+- start with explicit modules, style or config
+- drag&drop support
+- dmenu-mode (with streaming support for large datasets)
+- run as password input
+- theming support (global, per module, with inheritance)
 
-### Your first cache
+## Builtin Modules
 
-Minima vel non iste debitis. Consequatur repudiandae et quod accusamus sit molestias consequatur aperiam. Et sequi ipsa eum voluptatibus ipsam. Et quisquam ut.
+- ai
+    - anthropic (Claude 3.5), gemini (gemini-2.0-flash)
+    - define different prompts
+- runner
+    - parses your shell config for aliases
+    - exclusive list or all binaries
+    - ignore-list
+    - generic runner
+    - semi-smart: `shu now` => `shutdown now`
+- translation
+    - currently only free google translate
+- windows
+    - simple window switcher
+- desktop applications
+    - history-aware
+    - desktop actions (f.e. `Open a new private window` [Firefox])
+    - puts newly installed applications on top
+    - context-aware (context = open windows)
+- websearch
+    - simple websearch
+    - google, duckduckgo, ecosia, yandex
+    - can open websites directly
+- clipboard
+    - simple clipboard history
+    - with images
+- module switcher
+    - lets you switch to specific modules
+- commands (for Walker, f.e. clear cache)
+- ssh
+    - parses your `known_hosts` and `config` files
+- finder
+    - simple fuzzy finder
+    - drag&drop support
+- emojis
+- symbols
+- bookmarks
+    - currently custom bookmarks only
+    - planned: bookmarks from browsers
+- calculator
+    - uses [libqalculate](https://github.com/Qalculate/libqalculate)
+- custom commands (for running simple commands)
+    - lets you define and run simple one-off commands
+    - f.e. `toggle window floating`
+    - no need to create keybinds for commands you don't run often
+- xdg-desktop-portal-hyprland share picker
+    - lets you select windows/monitors/region for sharing
+- hyprland keybinds
+    - parses your hyprland config for keybinds
+    - shows the keybind
+    - execute the keybind via hyprctl
 
-Qui quae esse aspernatur fugit possimus. Quam sed molestiae temporibus. Eum perferendis dignissimos provident ea et. Et repudiandae quasi accusamus consequatur dolore nobis. Quia reiciendis necessitatibus a blanditiis iste quia. Ut quis et amet praesentium sapiente.
+## Compatible tools
 
-Atque eos laudantium. Optio odit aspernatur consequuntur corporis soluta quidem sunt aut doloribus. Laudantium assumenda commodi.
+- [iwmenu](https://github.com/e-tho/iwmenu) - lets you manage Wi-Fi through dmenu mode
+- [bzmenu](https://github.com/e-tho/bzmenu) - lets you manage Bluetooth through dmenu mode
 
-### Clearing the cache
+## Requirements
 
-Vel aut velit sit dolor aut suscipit at veritatis voluptas. Laudantium tempore praesentium. Qui ut voluptatem.
+- gtk4-layer-shell
 
-Ea est autem fugiat velit esse a alias earum. Dolore non amet soluta eos libero est. Consequatur qui aliquam qui odit eligendi ut impedit illo dignissimos.
+## Installation
 
-Ut dolore qui aut nam. Natus temporibus nisi voluptatum labore est ex error vel officia. Vero repellendus ut. Suscipit voluptate et placeat. Eius quo corporis ab et consequatur quisquam. Nihil officia facere dolorem occaecati alias deleniti deleniti in.
+```bash
+arch:
+yay -S walker-bin
 
-### Adding middleware
+// or to build from source
+yay -S walker
+```
 
-Officia nobis tempora maiores id iusto magni reprehenderit velit. Quae dolores inventore molestiae perspiciatis aut. Quis sequi officia quasi rem officiis officiis. Nesciunt ut cupiditate. Sunt aliquid explicabo enim ipsa eum recusandae. Vitae sunt eligendi et non beatae minima aut.
+--- 
 
-Harum perferendis aut qui quibusdam tempore laboriosam voluptatum qui sed. Amet error amet totam exercitationem aut corporis accusantium dolorum. Perspiciatis aut animi et. Sed unde error ut aut rerum.
+## Running as a service
 
-Ut quo libero aperiam mollitia est repudiandae quaerat corrupti explicabo. Voluptas accusantium sed et doloribus voluptatem fugiat a mollitia. Numquam est magnam dolorem asperiores fugiat. Soluta et fuga amet alias temporibus quasi velit. Laudantium voluptatum perspiciatis doloribus quasi facere. Eveniet deleniti veniam et quia veritatis minus veniam perspiciatis.
+This depends on your system:
 
----
+Option 1: Autostart Walker with `walker --gapplication-service` and it will run in the background.
 
-## Getting help
+Option 2: You can let Walker create an autostart desktop file for you by running `walker --enableautostart`.
 
-Consequuntur et aut quisquam et qui consequatur eligendi. Necessitatibus dolorem sit. Excepturi cumque quibusdam soluta ullam rerum voluptatibus. Porro illo sequi consequatur nisi numquam nisi autem. Ut necessitatibus aut. Veniam ipsa voluptatem sed.
+Then just run `walker` to bring it up.
+You can also send re-open walker by calling the socket at `/tmp/walker-reopen.sock`. F.e. with `nc -U /tmp/walker-reopen.sock`.
 
-### Submit an issue
+Example for Hyprland:
 
-Inventore et aut minus ut voluptatem nihil commodi doloribus consequatur. Facilis perferendis nihil sit aut aspernatur iure ut dolores et. Aspernatur odit dignissimos. Aut qui est sint sint.
+```bash
+exec-once=walker --gapplication-service
+```
 
-Facere aliquam qui. Dolorem officia ipsam adipisci qui molestiae. Error voluptatem reprehenderit ex.
+## Config & Style
 
-Consequatur enim quia maiores aperiam et ipsum dicta. Quam ut sit facere sit quae. Eligendi veritatis aut ut veritatis iste ut adipisci illo.
+[Check configuration guide](/docs/configuration) for more information on how to configure Walker.
 
-### Join the community
+## Start Walker with explicit modules
 
-Praesentium facilis iste aliquid quo quia a excepturi. Fuga reprehenderit illo sequi voluptatem voluptatem omnis. Id quia consequatur rerum consectetur eligendi et omnis. Voluptates iusto labore possimus provident praesentium id vel harum quisquam. Voluptatem provident corrupti.
+You can start walker with explicit modules by using the `--modules` flag. F.e:
 
-Eum et ut. Qui facilis est ipsa. Non facere quia sequi commodi autem. Dicta autem sit sequi omnis impedit. Eligendi amet dolorum magnam repudiandae in a.
+```bash
+walker --modules applications,ssh
+```
 
-Molestiae iusto ut exercitationem dolorem unde iusto tempora atque nihil. Voluptatem velit facere laboriosam nobis ea. Consequatur rerum velit ipsum ipsam. Et qui saepe consequatur minima laborum tempore voluptatum et. Quia eveniet eaque sequi consequatur nihil eos.
+Will tell Walker to only use the applications and ssh module.
+
+## Styling with typeahead enabled
+
+If you have typeahead enabled, make sure that your `#search` has no background, so the typeahead is readable.
+
+## Providing your own modules
+
+If you want to extend walker with your own modules, you can do that in the config.
+
+```toml
+[[plugins]]
+prefix = "!"
+name = "mymodule"
+src = "node /path/to/myscript.js"
+```
+
+See the wiki for more information.
+
+### Dynamic Styling
+
+The window and items will have a class based on the source. Selecting an item will change the windows class to the current selections source. Using a prefix will apply that sources classes to the window.
+
+F.e. search = `!somecommand` => `#window.runner`
+
+| class                | condition                  |
+| -------------------- | -------------------------- |
+| `#window.activation` | AM enabled                 |
+| `#spinner.visible`   | Processing in progress     |
+| `#item.<entryclass>` | Always                     |
+| `#item.active`       | Dmenu with '--active'-flag |
+
+### Starting as service
+
+Start with `walker --gapplication-service` to start in service-mode. Calling `walker` normally afterwards should be rather fast.
+
+### Additional flags
+
+`walker --help`
+
+## Keybinds
+
+The keybinds are customizable, check the wiki.
+
+AM = Activation Mode
+
+| Key                                                                     | Description                                                              |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `Enter`                                                                 | activate selection                                                       |
+| `Alt+Enter`                                                             | activate selection with alternative command. By default: run in terminal |
+| `Shift+Enter`                                                           | activate selection without closing                                       |
+| `Ctrl+j` (if ActivationMode is disabled), `Down`, `Tab`                 | next entry                                                               |
+| `Ctrl+k` (if ActivationMode is disabled), `Up`, `LEFT_TAB` (shift+tab?) | previous entry                                                           |
+| `Escape`                                                                | close                                                                    |
+| `Ctrl + Label`                                                          | Activate item by label                                                   |
+| `Ctrl + c`                                                              | AI: copy last response                                                   |
+| `Ctrl + r`                                                              | All (service-only): resume last query,AI: resume last session for prompt |
+| `Ctrl + x`                                                              | AI: clear current session                                                |
+| `Ctrl + e`                                                              | AI: run last message in terminal                                         |
+| `Ctrl + m`                                                              | toggle exact match search                                                |
+| `Ctrl + Shift + Label`                                                  | Activate item by label without closing                                   |
+| `Shift+Backspace`                                                       | All: delete entry from history, Clipboard: remove from clipboard         |
+
+### Activation Mode
+
+Activation-Mode can be triggered by holding `LCtrl` ( or `LAlt`). The window will get an additional class `activation` you can use for styling. While activated, you can run items by pressing their respective label. This only works for the top 8 items.
+
+## FAQ
+
+### Newly installed or removed applications aren't shown / are still shown
+
+Make sure to clean the applications cache by either running the "Clear Applications Cache" command from within Walker (using the `commands` module) or by deleting the `applications.json` file in `$HOME/.cache/walker/`.
+
+Additionally you can disable the cache completely by setting
+
+```toml
+[applications]
+cache = false
+```
+
+in your config.
+
+### Applications launched via Walker close if the systemd-service stops
+
+Look [here](https://github.com/abenz1267/walker/issues/331#issuecomment-3031539042).
+
+My personal recommendation is to start the Walker service as an xdg-autostart application. That's up to you though.

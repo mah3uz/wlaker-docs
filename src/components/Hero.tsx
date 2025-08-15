@@ -8,18 +8,19 @@ import { HeroBackground } from '@/components/HeroBackground'
 import blurCyanImage from '@/images/blur-cyan.png'
 import blurIndigoImage from '@/images/blur-indigo.png'
 
-const codeLanguage = 'javascript'
-const code = `export default {
-  strategy: 'predictive',
-  engine: {
-    cpus: 12,
-    backups: ['./storage/cache.wtf'],
-  },
-}`
+const codeLanguage = 'toml'
+const code = `terminal_title_flag = "--title"
+locale = "en_US"
+theme = "default"
+
+[builtins.runner]
+name = "runner"
+placeholder = "Run..."
+`
 
 const tabs = [
-  { name: 'cache-advance.config.js', isActive: true },
-  { name: 'package.json', isActive: false },
+  { name: 'config.toml', isActive: true },
+  { name: 'theme.css', isActive: false },
 ]
 
 function TrafficLightsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -39,7 +40,7 @@ export function Hero() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 lg:max-w-8xl lg:grid-cols-2 lg:px-8 xl:gap-x-16 xl:px-12">
           <div className="relative z-10 md:text-center lg:text-left">
             <Image
-              className="absolute right-full bottom-full -mr-72 -mb-56 opacity-50"
+              className="absolute right-full bottom-full -mr-72 -mb-56 opacity-50 pointer-events-none"
               src={blurCyanImage}
               alt=""
               width={530}
@@ -49,15 +50,14 @@ export function Hero() {
             />
             <div className="relative">
               <p className="inline bg-linear-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                Never miss the cache again.
+                Walker - The launcher
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
-                Cache every single thing your app could ever do ahead of time,
-                so your code never even has to run at all.
+                A highly extendable application launcher that doesn&#39;t hold back on features and usability.
+                Fast. Unclutters your brain. Improves your workflow.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <Button href="/">Get started</Button>
-                <Button href="/" variant="secondary">
+                <Button href="https://github.com/abenz1267/walker/tree/0.13.26" target={'_blank'}>
                   View on GitHub
                 </Button>
               </div>
@@ -69,7 +69,7 @@ export function Hero() {
             </div>
             <div className="relative">
               <Image
-                className="absolute -top-64 -right-64"
+                className="absolute -top-64 -right-64 pointer-events-none"
                 src={blurCyanImage}
                 alt=""
                 width={530}
@@ -78,7 +78,7 @@ export function Hero() {
                 priority
               />
               <Image
-                className="absolute -right-44 -bottom-40"
+                className="absolute -right-44 -bottom-40 pointer-events-none"
                 src={blurIndigoImage}
                 alt=""
                 width={567}
