@@ -1,27 +1,12 @@
-import { Fragment } from 'react'
+import {Fragment, useEffect, useState} from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
-import { Highlight } from 'prism-react-renderer'
+import {Highlight} from 'prism-react-renderer'
 
-import { Button } from '@/components/Button'
-import { HeroBackground } from '@/components/HeroBackground'
+import {Button} from '@/components/Button'
+import {HeroBackground} from '@/components/HeroBackground'
 import blurCyanImage from '@/images/blur-cyan.png'
 import blurIndigoImage from '@/images/blur-indigo.png'
-
-const codeLanguage = 'toml'
-const code = `terminal_title_flag = "--title"
-locale = "en_US"
-theme = "default"
-
-[builtins.runner]
-name = "runner"
-placeholder = "Run..."
-`
-
-const tabs = [
-  { name: 'config.toml', isActive: true },
-  { name: 'theme.css', isActive: false },
-]
 
 function TrafficLightsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -34,6 +19,60 @@ function TrafficLightsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export function Hero() {
+    const [tabs, setTabs] = useState([
+        {
+            name: 'config.toml',
+            isActive: false,
+            code:`force_keyboard_focus = false
+close_when_open = true
+click_to_close = true
+global_argument_delimiter = "#"
+theme = "default"
+
+[keybinds]
+close = ["Escape"]
+next = ["Down"]
+previous = ["Up"]   `,
+            codeLanguage: 'toml'
+        },
+        {
+            name: 'theme.css',
+            isActive: true,
+            code:`@define-color window_bg_color rgba(0, 0, 0, 0.8);
+@define-color accent_bg_color rgba(255, 255, 255, 0.1);
+@define-color theme_fg_color #ffffff;
+
+.box-wrapper {
+  background: @window_bg_color;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}`,
+            codeLanguage: 'css'
+        }
+])
+    // change active tab
+    // every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTabs((tabs) => {
+                return tabs.map((tab, index) => {
+                    if (tab.isActive) {
+                        return {...tab, isActive: false}
+                    }
+                    if (index === (tabs.findIndex(t => t.isActive) + 1) % tabs.length) {
+                        return {...tab, isActive: true}
+                    }
+                    return tab
+                })
+            })
+        }, 5000)
+        return () => clearInterval(interval)
+    }, [])
+    const activeTab = tabs.find(tab => tab.isActive) || tabs[0]
+    const code = activeTab.code
+    const codeLanguage = activeTab.codeLanguage
+
   return (
     <div className="overflow-hidden bg-slate-900 dark:-mt-19 dark:-mb-32 dark:pt-19 dark:pb-32">
       <div className="py-16 sm:px-2 lg:relative lg:px-0 lg:py-20">
@@ -50,14 +89,13 @@ export function Hero() {
             />
             <div className="relative">
               <p className="inline bg-linear-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
-                Walker - The launcher
+                Walker - A Modern Application Launcher
               </p>
               <p className="mt-3 text-2xl tracking-tight text-slate-400">
-                A highly extendable application launcher that doesn&#39;t hold back on features and usability.
-                Fast. Unclutters your brain. Improves your workflow.
+                A fast, customizable application launcher built with GTK4 and Rust, designed for Linux desktop environments. Walker provides a clean, modern interface for launching applications, running commands, performing calculations, and more.
               </p>
               <div className="mt-8 flex gap-4 md:justify-center lg:justify-start">
-                <Button href="https://github.com/abenz1267/walker/tree/0.13.26" target={'_blank'}>
+                <Button href="https://github.com/abenz1267/walker/" target={'_blank'}>
                   View on GitHub
                 </Button>
               </div>

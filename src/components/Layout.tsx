@@ -57,7 +57,7 @@ function Header() {
       </div>
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:grow">
         <ThemeSelector className="relative z-10" />
-        <Link href="https://github.com/abenz1267/walker/tree/0.13.26" target="_blank" className="group" aria-label="GitHub">
+        <Link href="https://github.com/abenz1267/walker/" target="_blank" className="group" aria-label="GitHub">
           <GitHubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
         </Link>
       </div>

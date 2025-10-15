@@ -1,5 +1,5 @@
 # Walker Docs
-
+![Screenshot](screenshot.png "Walker Screenshot")
 > This documentation is not officially maintained by the Walker team, but is provided by the community.
 > It is not guaranteed to be up-to-date or accurate.
 

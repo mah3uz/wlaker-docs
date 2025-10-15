@@ -5,9 +5,6 @@ nextjs:
     title: Service
     description: Run Walker as a background service for instant open.
 ---
-
-# Service
-
 Run Walker as a background service for instant open.
 
 ## Start service
