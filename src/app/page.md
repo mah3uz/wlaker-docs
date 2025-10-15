@@ -27,7 +27,7 @@ Walker is a highly extendable application launcher that doesn't hold back on fea
 
 # Walker
 
-![Walker screenshot](https://raw.githubusercontent.com/mah3uz/walker-docs/refs/heads/main/screenshot.png "Walker Screenshot")
+![Walker screenshot](https://raw.githubusercontent.com/mah3uz/wlaker-docs/refs/heads/main/screenshot.png "Walker Screenshot")
 
 Walker is a modern, fast application launcher frontend for Elephant, built with GTK4 and Rust. It provides a clean interface for launching applications, running commands, searching files, and much more.
 
